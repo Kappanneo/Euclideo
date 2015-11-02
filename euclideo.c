@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
   {
     int vid= deci(argv[1],strlen(argv[1]));
     int vis= deci(argv[2],strlen(argv[2]));
-    while(vis) //If 0 exists anyways
+    while(vis) //If 0 exits anyways
 	{
 	  int div= vis;
 	  vis= vid%vis;
