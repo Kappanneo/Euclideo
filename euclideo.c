@@ -6,8 +6,8 @@ int main(int argc, char *argv[])
 {
   if(argc>2)
     {
-      long a= deci(argv[1],strl(argv[1]));
-      long b= deci(argv[2],strl(argv[2]));
+      long a= unint(argv[1]);
+      long b= unint(argv[2]);
       long vid= a > b? a : b;
       long vis= a > b? b : a; 
       while(vis)
