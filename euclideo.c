@@ -29,33 +29,35 @@ int main(int argc, char *argv[])
 	  t[1]= t[0]-q*t[1];
 	  t[0]= temp;
 
-	  printf("%ld= %d* %ld %c%ld ", vid, q, vis, vid%vis<0?:'+', vid%vis);
-	  if(argc==4)if(unint(argv[3])!=0)
-	    printf("(%d, %d)", s[0], t[0]);
+	  printf("%ld= %d* %ld %c%ld ", vid, q, vis, vid%vis<0?'-':'+', vid%vis<0? -vid%vis: vid%vis);
+	  if(argc==4)
+	    if(unint(argv[3])!=0)
+	      printf("(%d, %d)", s[0], t[0]);
 	  puts("");
 
 	  temp= vis;
 	  vis= vid%vis;
 	  vid= temp;
 	}
-
+      
       printf("\nMCD(%ld,%ld)= %ld\n\n",a,b,vid >0? vid: -vid);
-
-      if(argc==4)if(unint(argv[3])!=0)
-	{
-	  long c= unint(argv[3]);
-	  printf("%ldx %c%ldy =%ld", a, b<0?:'+', b, c);
-	  printf("%sha soluzioni\n\n", c%vid?" non ":" ");
-	  
-	  if(c%vid==0)
-	    {
-	      long xo= a2 > b2? s[0]*c/vid : t[0]*c/vid;
-	      long yo= a2 > b2? t[0]*c/vid : s[0]*c/vid;
-
-	      printf("x= %ld %c%ldk\n", xo, b/vid<0?:'+', b/vid); 
-	      printf("y= %ld %c%ldk\n\n", yo, a/vid>0?:'+', -a/vid);
-	    }
-	}
+      
+      if(argc==4)
+	if(unint(argv[3])!=0)
+	  {
+	    long c= unint(argv[3]);
+	    printf("%ldx %c%ldy =%ld", a, b<0?'-':'+', b<0? -b: b, c);
+	    printf("%sha soluzioni\n\n", c%vid?" non ":" ");
+	    
+	    if(c%vid==0)
+	      {
+		long xo= a2 > b2? s[0]*c/vid : t[0]*c/vid;
+		long yo= a2 > b2? t[0]*c/vid : s[0]*c/vid;
+		
+		printf("x= %ld %c%ldk\n", xo, b/vid<0?'-':'+', b/vid<0? -b/vid: b/vid); 
+		printf("y= %ld %c%ldk\n\n", yo, a/vid>0?'-':'+', a/vid>0? a/vid: -a/vid);
+	      }
+	  }
     }
   return qualcosa(argc-2,"[a] [b] [c] (ax+by=c)",argv[0]); 
 }
