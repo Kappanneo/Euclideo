@@ -39,13 +39,13 @@ int main(int argc, char *argv[])
 	  vid= temp;
 	}
 
-      printf("\nMCD(%ld,%ld)= %ld\n\n",a,b,vid/* >0? vid: -vid */);
+      printf("\nMCD(%ld,%ld)= %ld\n\n",a,b,vid >0? vid: -vid);
 
       if(argc==4)if(unint(argv[3])!=0)
 	{
 	  long c= unint(argv[3]);
 	  printf("%ldx %c%ldy =%ld", a, b<0?:'+', b, c);
-	  printf(" %s ha soluzioni\n\n", c%vid?"non":"");
+	  printf("%sha soluzioni\n\n", c%vid?" non ":" ");
 	  
 	  if(c%vid==0)
 	    {
