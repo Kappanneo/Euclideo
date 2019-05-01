@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../klib.h"
+#include "./klib/klib.h"
 
 int main(int argc, char *argv[])
 {

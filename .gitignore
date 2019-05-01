@@ -1,2 +1,9 @@
-euclideo.o
-euclideo
+/*
+
+!.gitignore
+!README.md
+
+!makefile
+
+!.h
+!.c
